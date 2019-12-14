@@ -24,39 +24,53 @@ import cn.edu.guet.xianhuo.network.core.ResponseEntity;
  */
 public class SignInActivity extends BaseActivity {
 
-    @BindView(R.id.edit_name) EditText etName;
-    @BindView(R.id.edit_password) EditText etPassword;
-    @BindView(R.id.button_signin) Button btnSignIn;
+    @BindView(R.id.edit_name)
+    EditText etName;
+
+    @BindView(R.id.edit_password)
+    EditText etPassword;
+
+    @BindView(R.id.button_signin)
+    Button btnSignIn;
 
     private ProgressWrapper mProgressWrapper;
 
     private String mUsername;
     private String mPassword;
 
-    @Override protected int getContentViewLayout() {
+    @Override
+    protected int getContentViewLayout() {
         return R.layout.activity_sign_in;
     }
 
-    @Override protected void initView() {
+    @Override
+    protected void initView() {
         new ToolbarWrapper(this).setCustomTitle(R.string.mine_title_sign_in);
         mProgressWrapper = new ProgressWrapper();
     }
 
     @Override
     protected void onBusinessResponse(String apiPath, boolean success, ResponseEntity rsp) {
+        /**
+         * 如果请求的地址和回复的地址不一样
+         */
         if (!ApiPath.USER_SIGNIN.equals(apiPath)) {
             throw new UnsupportedOperationException(apiPath);
         }
+
         mProgressWrapper.dismissProgress();
+
         if (success) {
             ToastWrapper.show(R.string.mine_msg_sign_in_success);
             ApiSignIn.Rsp signInRsp = (ApiSignIn.Rsp) rsp;
             UserManager.getInstance().setUser(signInRsp.getData().getUser(), signInRsp.getData().getSession());
             finish();
         }
+
     }
 
-    @OnTextChanged({R.id.edit_password, R.id.edit_name}) void onTextChanged() {
+    @OnTextChanged({R.id.edit_password, R.id.edit_name})
+    void onTextChanged() {
         mUsername = etName.getText().toString();
         mPassword = etPassword.getText().toString();
         // 简单的条件判断: 用户名和密码不能为空.
@@ -67,13 +81,18 @@ public class SignInActivity extends BaseActivity {
         }
     }
 
-    @OnClick(R.id.button_signin) void signIn() {
+    @OnClick(R.id.button_signin)
+    void signIn() {
         mProgressWrapper.showProgress(this);
+        /**
+         * 进行登录请求 使用sha256对密码进行加密
+         */
         ApiSignIn apiSignIn = new ApiSignIn(mUsername, Sha256Utils.bin2hex(mPassword));
         enqueue(apiSignIn);
     }
 
-    @OnClick(R.id.text_signup) void navigateToSignUp() {
+    @OnClick(R.id.text_signup)
+    void navigateToSignUp() {
         // 跳转到注册页面.
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);

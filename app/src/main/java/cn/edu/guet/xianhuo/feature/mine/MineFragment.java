@@ -35,10 +35,13 @@ public class MineFragment extends BaseFragment {
 
     @BindView(R.id.text_wait_pay)
     TextView tvWaitPay;
+
     @BindView(R.id.text_wait_ship)
     TextView tvWaitShip;
+
     @BindView(R.id.text_shipped)
     TextView tvShipped;
+
     @BindView(R.id.text_history)
     TextView tvHistory;
 
@@ -79,6 +82,12 @@ public class MineFragment extends BaseFragment {
         }
     }
 
+    /**
+     * 当点击到有关用户具体信息的按钮时，则判断当前用户是否登录
+     * 如果没有登录，则跳转到登录界面，如果登录了，则通过网络请求去获取用户这部分的数据
+     *
+     * @param view
+     */
     @OnClick({R.id.text_username, R.id.text_manage_address, R.id.text_wait_pay, R.id.text_order_unconfirmed,
             R.id.text_wait_ship, R.id.text_shipped, R.id.text_history, R.id.text_favorite,})
     void onClick(View view) {
@@ -128,12 +137,18 @@ public class MineFragment extends BaseFragment {
         }
     }
 
+    /**
+     * 设置页面
+     */
     @OnClick(R.id.button_setting)
     void navigateToSettings() {
         Intent intent = new Intent(getContext(), SettingsActivity.class);
         getActivity().startActivity(intent);
     }
 
+    /**
+     * 帮助页面
+     */
     @OnClick(R.id.text_help)
     void navigateToHelp() {
         Intent intent = new Intent(getContext(), HelpActivity.class);

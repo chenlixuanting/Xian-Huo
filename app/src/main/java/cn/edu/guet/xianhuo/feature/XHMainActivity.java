@@ -69,10 +69,10 @@ public class XHMainActivity extends BaseActivity implements OnTabSelectListener 
                 if (mHomeFragment == null) mHomeFragment = HomeFragment.newInstance();
                 switchFragment(mHomeFragment);
                 break;
-            case R.id.tab_category://分类
-                if (mCategoryFragment == null) mCategoryFragment = CategoryFragment.newInstance();
-                switchFragment(mCategoryFragment);
-                break;
+//            case R.id.tab_category://分类
+//                if (mCategoryFragment == null) mCategoryFragment = CategoryFragment.newInstance();
+//                switchFragment(mCategoryFragment);
+//                break;
             case R.id.tab_cart://购物车
                 if (mCartFragment == null) mCartFragment = CartFragment.newInstance();
                 switchFragment(mCartFragment);

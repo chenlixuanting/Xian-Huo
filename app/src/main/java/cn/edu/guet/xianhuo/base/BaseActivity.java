@@ -26,6 +26,11 @@ public abstract class BaseActivity extends TransitionActivity {
 
     private Unbinder mUnbind;
 
+    /**
+     * 当activity启动时
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,9 @@ public abstract class BaseActivity extends TransitionActivity {
         EventBus.getDefault().register(this);
     }
 
+    /**
+     * 当activity销毁
+     */
     @Override
     protected final void onDestroy() {
         super.onDestroy();

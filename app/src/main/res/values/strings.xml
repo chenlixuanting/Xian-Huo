@@ -16,6 +16,10 @@
     <string name="main_category">分类</string>
     <string name="main_shopping_cart">购物车</string>
     <string name="main_mine">我的</string>
+    <string name="main_message">消息</string>
+
+    <string name="home_goods_all_category">全部</string>
+    <string name="home_goods_category">商品分类</string>
 
     <string name="home_hot_goods">热门商品</string>
     <string name="home_promote_goods">促销单品</string>
@@ -148,5 +152,7 @@
     <string name="home_second_hand_tidal_product">潮品</string>
     <string name="home_second_hand_commodity">日用品</string>
     <string name="home_school_credit">校园信用</string>
+    <string name="home_buy">求购</string>
+    <string name="home_sale">出售</string>
 
 </resources>

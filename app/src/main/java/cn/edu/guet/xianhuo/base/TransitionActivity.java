@@ -8,9 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import cn.edu.guet.xianhuo.R;
 
+/**
+ * 所有的Activity都基础该Activity，从而实现动画效果
+ */
 public abstract class TransitionActivity extends AppCompatActivity {
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             onBackPressed();
             return true;
@@ -18,17 +22,20 @@ public abstract class TransitionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override public void startActivity(Intent intent) {
+    @Override
+    public void startActivity(Intent intent) {
         super.startActivity(intent);
         setTransitionAnimation(true);
     }
 
-    @Override public void startActivityForResult(Intent intent, int requestCode) {
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
         super.startActivityForResult(intent, requestCode);
         setTransitionAnimation(true);
     }
 
-    @Override public void finish() {
+    @Override
+    public void finish() {
         super.finish();
         setTransitionAnimation(false);
     }

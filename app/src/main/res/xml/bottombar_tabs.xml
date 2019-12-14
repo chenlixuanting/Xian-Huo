@@ -4,14 +4,14 @@
         icon="@drawable/ic_tab_home"
         id="@+id/tab_home"
         title="@string/main_home" />
+<!--    <tab-->
+<!--        icon="@drawable/ic_tab_category"-->
+<!--        id="@+id/tab_category"-->
+<!--        title="@string/main_category" />-->
     <tab
-        icon="@drawable/ic_tab_category"
-        id="@+id/tab_category"
-        title="@string/main_category" />
-    <tab
-        icon="@drawable/ic_tab_cart"
+        icon="@drawable/ic_message_black_24dp"
         id="@+id/tab_cart"
-        title="@string/main_shopping_cart" />
+        title="@string/main_message" />
     <tab
         icon="@drawable/ic_tab_mine"
         id="@+id/tab_mine"
